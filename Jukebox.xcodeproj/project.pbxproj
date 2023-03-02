@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE2C746229AFB84F004E6F59 /* JukeboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C746129AFB84F004E6F59 /* JukeboxApp.swift */; };
+		CE2C746429AFB84F004E6F59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C746329AFB84F004E6F59 /* ContentView.swift */; };
+		CE2C746629AFB851004E6F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2C746529AFB851004E6F59 /* Assets.xcassets */; };
+		CE2C746929AFB851004E6F59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2C746829AFB851004E6F59 /* Preview Assets.xcassets */; };
+		CE2C747629AFB9C7004E6F59 /* PrevButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C747529AFB9C7004E6F59 /* PrevButton.swift */; };
+		CE2C747829AFC72E004E6F59 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C747729AFC72E004E6F59 /* NextButton.swift */; };
+		CE2C747A29AFC752004E6F59 /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C747929AFC752004E6F59 /* PlayPauseButton.swift */; };
+		CE2C747C29AFCA16004E6F59 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C747B29AFCA16004E6F59 /* ProgressBar.swift */; };
+		CE2C748429AFDFF8004E6F59 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748329AFDFF8004E6F59 /* AudioPlayer.swift */; };
+		CE2C748629B03B0D004E6F59 /* minuteSecondString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748529B03B0D004E6F59 /* minuteSecondString.swift */; };
+		CE2C748929B04183004E6F59 /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748829B04183004E6F59 /* AudioPlayerViewModel.swift */; };
+		CE2C748B29B04990004E6F59 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748A29B04990004E6F59 /* Loading.swift */; };
+		CE2C748D29B059EE004E6F59 /* SongMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748C29B059EE004E6F59 /* SongMetadata.swift */; };
+		CE2C749029B05C6D004E6F59 /* TracksQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748F29B05C6D004E6F59 /* TracksQueries.swift */; };
+		CE2C749229B05DA1004E6F59 /* SongMetadataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749129B05DA1004E6F59 /* SongMetadataFetcher.swift */; };
+		CE2C749429B068E4004E6F59 /* Base64ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749329B068E4004E6F59 /* Base64ImageView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE2C745E29AFB84F004E6F59 /* Jukebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jukebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2C746129AFB84F004E6F59 /* JukeboxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JukeboxApp.swift; sourceTree = "<group>"; };
+		CE2C746329AFB84F004E6F59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE2C746529AFB851004E6F59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE2C746829AFB851004E6F59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CE2C746A29AFB851004E6F59 /* Jukebox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jukebox.entitlements; sourceTree = "<group>"; };
+		CE2C747529AFB9C7004E6F59 /* PrevButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrevButton.swift; sourceTree = "<group>"; };
+		CE2C747729AFC72E004E6F59 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		CE2C747929AFC752004E6F59 /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
+		CE2C747B29AFCA16004E6F59 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		CE2C748329AFDFF8004E6F59 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		CE2C748529B03B0D004E6F59 /* minuteSecondString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minuteSecondString.swift; sourceTree = "<group>"; };
+		CE2C748829B04183004E6F59 /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
+		CE2C748A29B04990004E6F59 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		CE2C748C29B059EE004E6F59 /* SongMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMetadata.swift; sourceTree = "<group>"; };
+		CE2C748F29B05C6D004E6F59 /* TracksQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksQueries.swift; sourceTree = "<group>"; };
+		CE2C749129B05DA1004E6F59 /* SongMetadataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMetadataFetcher.swift; sourceTree = "<group>"; };
+		CE2C749329B068E4004E6F59 /* Base64ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64ImageView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE2C745B29AFB84F004E6F59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE2C745529AFB84F004E6F59 = {
+			isa = PBXGroup;
+			children = (
+				CE2C746029AFB84F004E6F59 /* Jukebox */,
+				CE2C745F29AFB84F004E6F59 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE2C745F29AFB84F004E6F59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C745E29AFB84F004E6F59 /* Jukebox.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE2C746029AFB84F004E6F59 /* Jukebox */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C748E29B05C4D004E6F59 /* Queries */,
+				CE2C748729B04172004E6F59 /* ViewModels */,
+				CE2C748029AFDD20004E6F59 /* Utils */,
+				CE2C747229AFB889004E6F59 /* Resources */,
+				CE2C747129AFB885004E6F59 /* Models */,
+				CE2C747029AFB881004E6F59 /* Views */,
+				CE2C746129AFB84F004E6F59 /* JukeboxApp.swift */,
+				CE2C746529AFB851004E6F59 /* Assets.xcassets */,
+				CE2C746A29AFB851004E6F59 /* Jukebox.entitlements */,
+				CE2C746729AFB851004E6F59 /* Preview Content */,
+			);
+			path = Jukebox;
+			sourceTree = "<group>";
+		};
+		CE2C746729AFB851004E6F59 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C746829AFB851004E6F59 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CE2C747029AFB881004E6F59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C746329AFB84F004E6F59 /* ContentView.swift */,
+				CE2C747529AFB9C7004E6F59 /* PrevButton.swift */,
+				CE2C747729AFC72E004E6F59 /* NextButton.swift */,
+				CE2C747929AFC752004E6F59 /* PlayPauseButton.swift */,
+				CE2C747B29AFCA16004E6F59 /* ProgressBar.swift */,
+				CE2C748329AFDFF8004E6F59 /* AudioPlayer.swift */,
+				CE2C748A29B04990004E6F59 /* Loading.swift */,
+				CE2C749329B068E4004E6F59 /* Base64ImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE2C747129AFB885004E6F59 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C748C29B059EE004E6F59 /* SongMetadata.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE2C747229AFB889004E6F59 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CE2C748029AFDD20004E6F59 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C748529B03B0D004E6F59 /* minuteSecondString.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CE2C748729B04172004E6F59 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C748829B04183004E6F59 /* AudioPlayerViewModel.swift */,
+				CE2C749129B05DA1004E6F59 /* SongMetadataFetcher.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CE2C748E29B05C4D004E6F59 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C748F29B05C6D004E6F59 /* TracksQueries.swift */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE2C745D29AFB84F004E6F59 /* Jukebox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE2C746D29AFB851004E6F59 /* Build configuration list for PBXNativeTarget "Jukebox" */;
+			buildPhases = (
+				CE2C745A29AFB84F004E6F59 /* Sources */,
+				CE2C745B29AFB84F004E6F59 /* Frameworks */,
+				CE2C745C29AFB84F004E6F59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Jukebox;
+			packageProductDependencies = (
+			);
+			productName = Jukebox;
+			productReference = CE2C745E29AFB84F004E6F59 /* Jukebox.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE2C745629AFB84F004E6F59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					CE2C745D29AFB84F004E6F59 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = CE2C745929AFB84F004E6F59 /* Build configuration list for PBXProject "Jukebox" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE2C745529AFB84F004E6F59;
+			packageReferences = (
+			);
+			productRefGroup = CE2C745F29AFB84F004E6F59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE2C745D29AFB84F004E6F59 /* Jukebox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE2C745C29AFB84F004E6F59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2C746929AFB851004E6F59 /* Preview Assets.xcassets in Resources */,
+				CE2C746629AFB851004E6F59 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE2C745A29AFB84F004E6F59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2C748629B03B0D004E6F59 /* minuteSecondString.swift in Sources */,
+				CE2C747829AFC72E004E6F59 /* NextButton.swift in Sources */,
+				CE2C747629AFB9C7004E6F59 /* PrevButton.swift in Sources */,
+				CE2C748B29B04990004E6F59 /* Loading.swift in Sources */,
+				CE2C749029B05C6D004E6F59 /* TracksQueries.swift in Sources */,
+				CE2C749229B05DA1004E6F59 /* SongMetadataFetcher.swift in Sources */,
+				CE2C748429AFDFF8004E6F59 /* AudioPlayer.swift in Sources */,
+				CE2C746429AFB84F004E6F59 /* ContentView.swift in Sources */,
+				CE2C748929B04183004E6F59 /* AudioPlayerViewModel.swift in Sources */,
+				CE2C746229AFB84F004E6F59 /* JukeboxApp.swift in Sources */,
+				CE2C748D29B059EE004E6F59 /* SongMetadata.swift in Sources */,
+				CE2C747A29AFC752004E6F59 /* PlayPauseButton.swift in Sources */,
+				CE2C749429B068E4004E6F59 /* Base64ImageView.swift in Sources */,
+				CE2C747C29AFCA16004E6F59 /* ProgressBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CE2C746B29AFB851004E6F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CE2C746C29AFB851004E6F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		CE2C746E29AFB851004E6F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Jukebox/Jukebox.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Jukebox/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = devrauluis.Jukebox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CE2C746F29AFB851004E6F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Jukebox/Jukebox.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Jukebox/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = devrauluis.Jukebox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE2C745929AFB84F004E6F59 /* Build configuration list for PBXProject "Jukebox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2C746B29AFB851004E6F59 /* Debug */,
+				CE2C746C29AFB851004E6F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE2C746D29AFB851004E6F59 /* Build configuration list for PBXNativeTarget "Jukebox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2C746E29AFB851004E6F59 /* Debug */,
+				CE2C746F29AFB851004E6F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE2C745629AFB84F004E6F59 /* Project object */;
+}
