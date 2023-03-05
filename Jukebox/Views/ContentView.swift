@@ -9,22 +9,49 @@ import SwiftUI
 import AVFoundation
 
 struct ContentView: View {
-    
+    @State var error: Bool = false
+    @StateObject private var viewModel = TracksQueueViewModel()
+    @ObservedObject private var socket = TracksQueueGateway()
+
     var body: some View {
-        HStack(spacing: 0) {
-            AudioPlayer(songId: "01")
-            Spacer()
-            Text("Item 2")
-            Spacer()
-            Text("Item 3")
+        VStack {
+            if error {
+                Text("An error has ocurred")
+                Button("Retry") {
+                    error.toggle()
+                }
+            } else {
+                HStack(spacing: 0) {
+                    AudioPlayer(toggleError: { newValue in toggleError(newValue: newValue) }, queue: socket.queue, queueRandomTrack: { viewModel.queueRandomTrack() })
+                            .padding(.all)
+                            .frame(minWidth: 400, maxWidth: 400)
+
+                    Divider()
+                    Spacer()
+                    QueueList(toggleError: { newValue in toggleError(newValue: newValue) }, queue: $socket.queue, removeTrack: viewModel.removeTrack)
+                            .padding(.all)
+                            .frame(minWidth: 400)
+                    Divider()
+                    Spacer()
+                    Text("Item 3")
+                            .padding(.all)
+                            .frame(minWidth: 400, maxWidth: 400)
+                }
+                        .padding(.all)
+
+            }
+
         }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .edgesIgnoringSafeArea(.all)
-//          
-   
+    }
+
+    func toggleError(newValue: Bool?) {
+        if let newValue = newValue {
+            self.error = newValue
+        } else {
+            self.error = !self.error
+        }
     }
 }
-
 
 
 struct ContentView_Previews: PreviewProvider {

@@ -8,8 +8,8 @@
 import Foundation
 import AVFoundation
 
-func minuteSecondString(from time: CMTime) -> String {
-    let totalSeconds = time.seconds
+func formatTimeString(from time: Double) -> String {
+    let totalSeconds = time;
     if !totalSeconds.isFinite {
         return "00:00"
     }

@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct SongMetadata: Hashable, Codable {
+struct Track: Hashable, Codable, Identifiable {
+    let songName: String
     let title: String
     let trackNumber: String
     let genre: String
@@ -16,4 +17,6 @@ struct SongMetadata: Hashable, Codable {
     let year: String
     let album: String
     let image: String?
+    let id = UUID()
+    let posId: String?
 }

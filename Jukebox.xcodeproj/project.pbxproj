@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4E31F7E5AAFEB70ACD680E /* TrackRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E3B0C176087E89998E463 /* TrackRow.swift */; };
+		1B4E3944033B5CB240CEFB46 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E3B7D7DFBB26183FBBB77 /* AudioManager.swift */; };
+		CE04D7DA29B457A100B4760A /* TracksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04D7D929B457A100B4760A /* TracksList.swift */; };
 		CE2C746229AFB84F004E6F59 /* JukeboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C746129AFB84F004E6F59 /* JukeboxApp.swift */; };
 		CE2C746429AFB84F004E6F59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C746329AFB84F004E6F59 /* ContentView.swift */; };
 		CE2C746629AFB851004E6F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2C746529AFB851004E6F59 /* Assets.xcassets */; };
@@ -17,15 +20,24 @@
 		CE2C747C29AFCA16004E6F59 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C747B29AFCA16004E6F59 /* ProgressBar.swift */; };
 		CE2C748429AFDFF8004E6F59 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748329AFDFF8004E6F59 /* AudioPlayer.swift */; };
 		CE2C748629B03B0D004E6F59 /* minuteSecondString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748529B03B0D004E6F59 /* minuteSecondString.swift */; };
-		CE2C748929B04183004E6F59 /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748829B04183004E6F59 /* AudioPlayerViewModel.swift */; };
 		CE2C748B29B04990004E6F59 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748A29B04990004E6F59 /* Loading.swift */; };
-		CE2C748D29B059EE004E6F59 /* SongMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748C29B059EE004E6F59 /* SongMetadata.swift */; };
+		CE2C748D29B059EE004E6F59 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748C29B059EE004E6F59 /* Track.swift */; };
 		CE2C749029B05C6D004E6F59 /* TracksQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C748F29B05C6D004E6F59 /* TracksQueries.swift */; };
-		CE2C749229B05DA1004E6F59 /* SongMetadataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749129B05DA1004E6F59 /* SongMetadataFetcher.swift */; };
 		CE2C749429B068E4004E6F59 /* Base64ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749329B068E4004E6F59 /* Base64ImageView.swift */; };
+		CE2C749629B18F3F004E6F59 /* QueueList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749529B18F3F004E6F59 /* QueueList.swift */; };
+		CE2C749829B18F4A004E6F59 /* QueueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749729B18F4A004E6F59 /* QueueRow.swift */; };
+		CE2C749A29B19B35004E6F59 /* TracksQueueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749929B19B35004E6F59 /* TracksQueueViewModel.swift */; };
+		CE2C749C29B19BAF004E6F59 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749B29B19BAF004E6F59 /* Constants.swift */; };
+		CE2C749E29B1B4D6004E6F59 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749D29B1B4D6004E6F59 /* IconImage.swift */; };
+		CE2C74A029B22896004E6F59 /* TracksQueueGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C749F29B22896004E6F59 /* TracksQueueGateway.swift */; };
+		CE2C74A329B2290F004E6F59 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = CE2C74A229B2290F004E6F59 /* Starscream */; };
+		CE2C74A629B27BF7004E6F59 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = CE2C74A529B27BF7004E6F59 /* SocketIO */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B4E3B0C176087E89998E463 /* TrackRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackRow.swift; sourceTree = "<group>"; };
+		1B4E3B7D7DFBB26183FBBB77 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		CE04D7D929B457A100B4760A /* TracksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksList.swift; sourceTree = "<group>"; };
 		CE2C745E29AFB84F004E6F59 /* Jukebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jukebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2C746129AFB84F004E6F59 /* JukeboxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JukeboxApp.swift; sourceTree = "<group>"; };
 		CE2C746329AFB84F004E6F59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,12 +50,16 @@
 		CE2C747B29AFCA16004E6F59 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CE2C748329AFDFF8004E6F59 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		CE2C748529B03B0D004E6F59 /* minuteSecondString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minuteSecondString.swift; sourceTree = "<group>"; };
-		CE2C748829B04183004E6F59 /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
 		CE2C748A29B04990004E6F59 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
-		CE2C748C29B059EE004E6F59 /* SongMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMetadata.swift; sourceTree = "<group>"; };
+		CE2C748C29B059EE004E6F59 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		CE2C748F29B05C6D004E6F59 /* TracksQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksQueries.swift; sourceTree = "<group>"; };
-		CE2C749129B05DA1004E6F59 /* SongMetadataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMetadataFetcher.swift; sourceTree = "<group>"; };
 		CE2C749329B068E4004E6F59 /* Base64ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64ImageView.swift; sourceTree = "<group>"; };
+		CE2C749529B18F3F004E6F59 /* QueueList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueList.swift; sourceTree = "<group>"; };
+		CE2C749729B18F4A004E6F59 /* QueueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRow.swift; sourceTree = "<group>"; };
+		CE2C749929B19B35004E6F59 /* TracksQueueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksQueueViewModel.swift; sourceTree = "<group>"; };
+		CE2C749B29B19BAF004E6F59 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CE2C749D29B1B4D6004E6F59 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
+		CE2C749F29B22896004E6F59 /* TracksQueueGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksQueueGateway.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2C74A329B2290F004E6F59 /* Starscream in Frameworks */,
+				CE2C74A629B27BF7004E6F59 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +127,11 @@
 				CE2C748329AFDFF8004E6F59 /* AudioPlayer.swift */,
 				CE2C748A29B04990004E6F59 /* Loading.swift */,
 				CE2C749329B068E4004E6F59 /* Base64ImageView.swift */,
+				CE2C749529B18F3F004E6F59 /* QueueList.swift */,
+				CE2C749729B18F4A004E6F59 /* QueueRow.swift */,
+				CE2C749D29B1B4D6004E6F59 /* IconImage.swift */,
+				CE04D7D929B457A100B4760A /* TracksList.swift */,
+				1B4E3B0C176087E89998E463 /* TrackRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,7 +139,7 @@
 		CE2C747129AFB885004E6F59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE2C748C29B059EE004E6F59 /* SongMetadata.swift */,
+				CE2C748C29B059EE004E6F59 /* Track.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +147,7 @@
 		CE2C747229AFB889004E6F59 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE2C749B29B19BAF004E6F59 /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -139,8 +163,9 @@
 		CE2C748729B04172004E6F59 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CE2C748829B04183004E6F59 /* AudioPlayerViewModel.swift */,
-				CE2C749129B05DA1004E6F59 /* SongMetadataFetcher.swift */,
+				CE2C749929B19B35004E6F59 /* TracksQueueViewModel.swift */,
+				CE2C749F29B22896004E6F59 /* TracksQueueGateway.swift */,
+				1B4E3B7D7DFBB26183FBBB77 /* AudioManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -170,6 +195,8 @@
 			);
 			name = Jukebox;
 			packageProductDependencies = (
+				CE2C74A229B2290F004E6F59 /* Starscream */,
+				CE2C74A529B27BF7004E6F59 /* SocketIO */,
 			);
 			productName = Jukebox;
 			productReference = CE2C745E29AFB84F004E6F59 /* Jukebox.app */;
@@ -200,6 +227,8 @@
 			);
 			mainGroup = CE2C745529AFB84F004E6F59;
 			packageReferences = (
+				CE2C74A129B2290F004E6F59 /* XCRemoteSwiftPackageReference "Starscream" */,
+				CE2C74A429B27BF7004E6F59 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = CE2C745F29AFB84F004E6F59 /* Products */;
 			projectDirPath = "";
@@ -230,17 +259,24 @@
 				CE2C748629B03B0D004E6F59 /* minuteSecondString.swift in Sources */,
 				CE2C747829AFC72E004E6F59 /* NextButton.swift in Sources */,
 				CE2C747629AFB9C7004E6F59 /* PrevButton.swift in Sources */,
+				CE2C749E29B1B4D6004E6F59 /* IconImage.swift in Sources */,
 				CE2C748B29B04990004E6F59 /* Loading.swift in Sources */,
 				CE2C749029B05C6D004E6F59 /* TracksQueries.swift in Sources */,
-				CE2C749229B05DA1004E6F59 /* SongMetadataFetcher.swift in Sources */,
+				CE2C74A029B22896004E6F59 /* TracksQueueGateway.swift in Sources */,
+				CE04D7DA29B457A100B4760A /* TracksList.swift in Sources */,
+				CE2C749829B18F4A004E6F59 /* QueueRow.swift in Sources */,
 				CE2C748429AFDFF8004E6F59 /* AudioPlayer.swift in Sources */,
+				CE2C749629B18F3F004E6F59 /* QueueList.swift in Sources */,
 				CE2C746429AFB84F004E6F59 /* ContentView.swift in Sources */,
-				CE2C748929B04183004E6F59 /* AudioPlayerViewModel.swift in Sources */,
 				CE2C746229AFB84F004E6F59 /* JukeboxApp.swift in Sources */,
-				CE2C748D29B059EE004E6F59 /* SongMetadata.swift in Sources */,
+				CE2C748D29B059EE004E6F59 /* Track.swift in Sources */,
 				CE2C747A29AFC752004E6F59 /* PlayPauseButton.swift in Sources */,
 				CE2C749429B068E4004E6F59 /* Base64ImageView.swift in Sources */,
 				CE2C747C29AFCA16004E6F59 /* ProgressBar.swift in Sources */,
+				CE2C749A29B19B35004E6F59 /* TracksQueueViewModel.swift in Sources */,
+				CE2C749C29B19BAF004E6F59 /* Constants.swift in Sources */,
+				1B4E3944033B5CB240CEFB46 /* AudioManager.swift in Sources */,
+				1B4E31F7E5AAFEB70ACD680E /* TrackRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +468,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE2C74A129B2290F004E6F59 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		CE2C74A429B27BF7004E6F59 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE2C74A229B2290F004E6F59 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE2C74A129B2290F004E6F59 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+		CE2C74A529B27BF7004E6F59 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE2C74A429B27BF7004E6F59 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE2C745629AFB84F004E6F59 /* Project object */;
 }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-func fetchMetadata() async throws -> SongMetadata {
+func fetchMetadata() async throws -> Track {
   let url = URL(string: "https://example.com/tracks/01/meta")!
   let (data, _) = try await URLSession.shared.data(from: url)
-  let metadata = try JSONDecoder().decode(SongMetadata.self, from: data)
+  let metadata = try JSONDecoder().decode(Track.self, from: data)
   return metadata
 }

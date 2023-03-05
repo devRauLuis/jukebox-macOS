@@ -10,64 +10,104 @@ import SwiftUI
 import AppKit
 
 struct AudioPlayer: View {
-    let songId: String
-    
-    @ObservedObject private var player = AudioPlayerViewModel()
-    @ObservedObject private var metadataFetcher = MetadataFetcher()
-    
+    var toggleError: (Bool?) -> Void
+    @StateObject var audioManager = AudioManager()
+    var queue: [Track]?
+    var queueRandomTrack: () -> Void
+
     var body: some View {
-        
         VStack {
-            if let metadata = metadataFetcher.metadata {
-                // display image (if available)
-                if let imageData = metadata.image {
-                    Base64ImageView(base64: imageData)
-                }
-                VStack(alignment: .leading) {
-                    Text(metadata.title).font(.title).bold()
-                    Text(metadata.artist).font(.subheadline)
-                }
-                ProgressBar(currentTime: player.currentTimeString, totalTime: player.totalTimeString, progress: player.progress)
-            } else {
-                // display loading spinner while metadata is fetched
+            if audioManager.isBuffering {
                 ProgressView()
+            } else {
+                VStack {
+                    Base64ImageView(base64: audioManager.metadata?.image)
+                    Text(audioManager.metadata?.title ?? "").font(.title).bold()
+                    Text(audioManager.metadata?.artist ?? "").font(.subheadline)
+                    Slider(value: $audioManager.progress)
+
+                    HStack {
+                        PlayPauseButton(isPlaying: audioManager.isPlaying, togglePlaying: {
+                            if audioManager.isPlaying {
+                                audioManager.pause()
+                            } else {
+                                audioManager.play()
+                            }
+                        })
+                                .padding(.trailing)
+                        NextButton(handleClick: {
+                            audioManager.pause()
+                            popQueue()
+                        })
+                    }
+                            .padding(.top)
+                }
             }
-            
-            HStack {
-                PrevButton(handleClick: {})
-                    .padding(.trailing)
-                PlayPauseButton(isPlaying: player.isPlaying, togglePlaying: player.togglePlayPause)
-                    .padding(.trailing)
-                NextButton(handleClick: {})
-            }
-            .padding(.top)
         }
-        .padding(.all)
-        
-        .onAppear {
-            player.setupAudioPlayer(with: songId)
-            metadataFetcher.fetchMetadata(for: songId)
-        }
-        
-        .onDisappear {
-            player.cleanupAudioPlayer()
-        }
+                .onAppear {
+                    if let queue = queue, let firstSong = queue.first {
+                        audioManager.fetchMetadata(for: firstSong.songName)
+                        audioManager.setupAudioPlayer(with: firstSong.songName)
+                        audioManager.play()
+                    }
+                }
+                .onChange(of: queue, perform: { newQueue in
+                    if let firstSong = newQueue?.first {
+                        if audioManager.metadata?.posId == firstSong.posId {
+                            // The first song in the new queue is the same as the currently playing song, do nothing
+                        } else {
+                            // Queue is not empty and the first song is different, play the first song
+                            audioManager.cleanupAudioPlayer()
+                            audioManager.fetchMetadata(for: firstSong.songName)
+                            audioManager.setupAudioPlayer(with: firstSong.songName)
+                            audioManager.play()
+                        }
+                    } else {
+                        // Queue is empty, queue a new song
+                        queueRandomTrack()
+                    }
+                })
+
     }
-    
+
+    func popQueue() {
+        audioManager.cleanupAudioPlayer()
+        guard let url = URL(string: "\(Constants.baseUrl)/tracks-queue/pop") else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                        return
+                    }
+                    if let decodedTrack = try? JSONDecoder().decode(Track.self, from: data) {
+                        DispatchQueue.main.async {
+                            print("decoded track: \(decodedTrack.songName)")
+                        }
+                    } else {
+                        print("Failed to decode track")
+                    }
+                }
+                .resume()
+    }
 }
 
 struct AudioPlayer_Previews: PreviewProvider {
     static var previews: some View {
-        let metadata = SongMetadata(title: "Song Title", trackNumber: "1", genre: "Pop", artist: "Artist Name", releaseTime: "2022-02-28T00:00:00Z", year: "2022", album: "Album Title", image: "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAADMElEQVR4nOzVwQnAIBQFQYXff81RUkQCOyDj1YOPnbXWPmeTRef+/3O/OyBjzh3CD95BfqICMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMO0TAAD//2Anhf4QtqobAAAAAElFTkSuQmCC")
-        
-        let metadataFetcher = MetadataFetcher()
-        metadataFetcher.metadata = metadata
-        
-        let player = AudioPlayerViewModel()
-        player.setupAudioPlayer(with: "https://example.com/audio.mp3")
-        
-        return AudioPlayer(songId: "")
-            .environmentObject(player)
-            .environmentObject(metadataFetcher)
+        let metadata = Track(songName: "01",
+                title: "Days Before Rodeo The Prequel",
+                trackNumber: "1",
+                genre: "",
+                artist: "Travis Scott",
+                releaseTime: "Travi$ Scott",
+                year: "Travi$ Scott",
+                album: "Days Before Rodeo",
+                image: nil,
+                posId: "abcdefghijk")
+
+        return AudioPlayer(toggleError: { val in }, queue: [], queueRandomTrack: {})
     }
 }
