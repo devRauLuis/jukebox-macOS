@@ -1,0 +1,31 @@
+# macOS specific files that should be ignored
+.DS_Store
+*.swp
+*.lock
+*.DS_Store?
+*.idea
+
+# Xcode and Swift specific files that should be ignored
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.xcworkspace
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# Carthage specific files that should be ignored
+Carthage/Build
+Carthage/Checkouts
+
+# Cocoapods specific files that should be ignored
+Pods/
+*.lock
+*.xcconfig
+!default.pods
+
+# Miscellaneous files that should be ignored
+*.log
+*.tmp
+build/
+.idea/
