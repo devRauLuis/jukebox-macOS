@@ -35,7 +35,8 @@ class  TracksQueueGateway: ObservableObject {
         }
         
         socket.on("queueUpdated") { (dataArray, _) in
-//            print("initial data: \(dataArray)")
+            print("initial data: \(dataArray)")
+            
             print(type(of: dataArray))
             let decoder = JSONDecoder()
             
@@ -45,7 +46,7 @@ class  TracksQueueGateway: ObservableObject {
             
                 DispatchQueue.main.async {
                     self.queue = tracks
-//                    print("Decoded tracks: \(self.queue)")
+                    print("Decoded tracks: \(self.queue)")
                 }
             } catch {
                 print("Error decoding tracks: \(error)")

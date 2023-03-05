@@ -19,4 +19,9 @@ struct Track: Hashable, Codable, Identifiable {
     let image: String?
     let id = UUID()
     let posId: String?
+    
+    
+//    enum CodingKeys: String, CodingKey {
+//        case title
+//    }
 }

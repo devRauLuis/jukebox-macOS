@@ -33,9 +33,9 @@ struct ContentView: View {
                             .frame(minWidth: 400)
                     Divider()
                     Spacer()
-                    Text("Item 3")
+                    TracksList()
                             .padding(.all)
-                            .frame(minWidth: 400, maxWidth: 400)
+                            .frame(minWidth: 400)
                 }
                         .padding(.all)
 
