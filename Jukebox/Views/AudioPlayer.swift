@@ -14,6 +14,20 @@ struct AudioPlayer: View {
     @StateObject var audioManager = AudioManager()
     var queue: [Track]?
     var queueRandomTrack: () -> Void
+    @State var volume: Double = 1
+    @State var mute: Bool = false
+    
+    private var songProgress: Binding<Double> {
+        Binding(
+            get: { audioManager.progress },
+            set: { newVal in
+                audioManager.sliderValueChanged(editingChanged: true, newProgress: newVal)
+                print("progress \(newVal)")
+                if newVal >= 1 {
+                    popQueue()
+                }
+            })
+    }
     
     var body: some View {
         VStack {
@@ -24,8 +38,12 @@ struct AudioPlayer: View {
                     Base64ImageView(base64: audioManager.metadata?.image)
                     Text(audioManager.metadata?.title ?? "").font(.title).bold()
                     Text(audioManager.metadata?.artist ?? "").font(.subheadline)
-                    Slider(value: $audioManager.progress)
-                    
+                    HStack {
+                        Text(formatTimeString(from: audioManager.currentTime))
+                        
+                        Slider(value: songProgress)
+                        Text(formatTimeString(from: audioManager.totalTime))
+                    }
                     HStack {
                         PlayPauseButton(isPlaying: audioManager.isPlaying, togglePlaying: {
                             if audioManager.isPlaying {
@@ -41,34 +59,33 @@ struct AudioPlayer: View {
                         })
                     }
                     .padding(.top)
+                    HStack {
+                        Button(action: {
+                            mute.toggle()
+                            audioManager.mute(to: mute)
+                        }) {
+                            Image(systemName: mute ? "volume.slash.fill" : "volume.3.fill"
+                            ).foregroundColor(.gray).font(.system(size: 12))
+                        }
+                        .buttonStyle(.plain)
+                        Slider(value: $volume, onEditingChanged: volumeChanged)
+                            .disabled(mute)
+                    }
+                    .padding(.top)
+                    .padding(.horizontal, 40)
                 }
             }
-        }
-        .onAppear {
-//            print("queue appeared \(queue)")
-//            if let queue = queue, let firstSong = queue.first {
-//                if audioManager.metadata?.posId == firstSong.posId {
-//                    // The first song in the new queue is the same as the currently playing song, do nothing
-//                } else {
-//                    audioManager.fetchMetadata(for: firstSong.songName)
-//                    audioManager.setupAudioPlayer(with: firstSong.songName, handleSongEnd: popQueue)
-//                    audioManager.play()
-//
-//                }
-//            } else {
-//                // Queue is empty, queue a new song
-//                queueRandomTrack()
-//            }
         }
         .onChange(of: queue, perform: { newQueue in
             print("queue changed \(newQueue?.count)")
             if let firstSong = newQueue?.first {
+                print("first songs: \(firstSong.posId) \(firstSong.songName) - \(audioManager.metadata?.posId) \(audioManager.metadata?.title)")
                 if audioManager.metadata?.posId == firstSong.posId {
                     // The first song in the new queue is the same as the currently playing song, do nothing
                 } else {
                     // Queue is not empty and the first song is different, play the first song
                     audioManager.cleanupAudioPlayer()
-                    audioManager.fetchMetadata(for: firstSong.songName)
+                    audioManager.fetchMetadata(for: firstSong.songName, posId: firstSong.posId)
                     audioManager.setupAudioPlayer(with: firstSong.songName, handleSongEnd: popQueue)
                     audioManager.play()
                 }
@@ -76,9 +93,24 @@ struct AudioPlayer: View {
                 // Queue is empty, queue a new song
                 queueRandomTrack()
             }
-        })
-        
+        }).onChange(of: audioManager.progress) {progress in
+            var currentTime = audioManager.currentTime.rounded()
+            var totalTime = audioManager.totalTime.rounded()
+            print("progress: \(progress) \(currentTime) \(totalTime)")
+            
+            if (currentTime > 0 && totalTime > 0) && currentTime == totalTime {
+                popQueue()
+            }}
     }
+    
+    func volumeChanged(editingChanged: Bool) {
+        guard editingChanged else {
+            return
+        }
+        audioManager.changePlayerVolume(to: volume)
+    }
+    
+    //    func mute
     
     func popQueue() {
         audioManager.cleanupAudioPlayer()

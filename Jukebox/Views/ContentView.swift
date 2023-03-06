@@ -14,6 +14,7 @@ struct ContentView: View {
     @ObservedObject private var socket = TracksQueueGateway()
 
     var body: some View {
+
         VStack {
             if error {
                 Text("An error has ocurred")

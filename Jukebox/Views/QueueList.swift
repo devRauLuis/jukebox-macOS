@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct QueueList: View {
-    
+
     var toggleError: (Bool?) -> Void
     @Binding var queue: [Track]?
     var removeTrack: (String) -> Void
-    
+
     var body: some View {
-        if let queue = queue, queue.isEmpty {
-            VStack(alignment: .center){
+        if let queue = queue, queue.count < 2 {
+            VStack(alignment: .center) {
                 Text("No tracks in queue.")
             }
         } else {
             VStack {
-                if let queue = queue {
+                if let queue = queue, let queue = queue.dropFirst() {
                     List(queue) { track in
                         QueueRow(track: track, handleDelete: { removeTrack(track.posId ?? "") })
                     }

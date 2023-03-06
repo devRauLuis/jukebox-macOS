@@ -12,27 +12,27 @@ class AudioManager: ObservableObject {
     @Published var currentTime: Double = 0.0
     @Published var totalTime: Double = 0.0
     @Published var progress: Double = 0.0
-    
+
     var isBuffering: Bool {
         guard let currentItem = player?.currentItem else {
             return false
         }
-        
+
         return currentItem.status == .unknown
     }
-    
+
     private var player: AVPlayer?
     private var timeObserver: Any?
 
     func setupAudioPlayer(with songId: String, handleSongEnd: @escaping () -> Void) {
         let encodedTrack = songId.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         player = AVPlayer(url: URL(string: "\(Constants.baseUrl)/tracks/stream/\(encodedTrack)")!)
-//        print("Audio player setup \(player?.currentItem) \(Constants.baseUrl)/tracks/stream/\(encodedTrack)")
+
         player?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { [weak self] time in
             guard let self = self else {
                 return
             }
-            
+
             let currentSeconds = time.seconds
             let durationSeconds = self.player?.currentItem?.duration.seconds ?? 0.0
             self.currentTime = currentSeconds
@@ -44,7 +44,7 @@ class AudioManager: ObservableObject {
         }
     }
 
-    func fetchMetadata(for track: String) {
+    func fetchMetadata(for track: String, posId: String?) {
         print("Fetch metadata called for \(track)")
         let encodedTrack = track.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         guard let url = URL(string: "\(Constants.baseUrl)/tracks/\(encodedTrack)/meta") else {
@@ -63,7 +63,8 @@ class AudioManager: ObservableObject {
                     if let decodedTrack = try? JSONDecoder().decode(Track.self, from: data) {
                         DispatchQueue.main.async {
                             self.metadata = decodedTrack
-                            print("updated metadata: \(self.metadata?.songName)")
+                            self.metadata?.posId = posId
+                            print("updated metadata: \(self.metadata?.songName) \(self.metadata?.posId)")
                         }
                     } else {
                         print("Failed to decode track")
@@ -85,5 +86,24 @@ class AudioManager: ObservableObject {
     func cleanupAudioPlayer() {
         player = nil
         timeObserver = nil
+    }
+
+    func sliderValueChanged(editingChanged: Bool, newProgress: Double) {
+        guard editingChanged else {
+            return
+        }
+        let durationSeconds = player?.currentItem?.duration.seconds ?? 0.0
+        let targetTime = durationSeconds * Double(newProgress)
+        let time = CMTime(seconds: targetTime, preferredTimescale: 1)
+        print("progress \(progress) \(durationSeconds) \(targetTime) \(time)")
+        player?.seek(to: time)
+    }
+
+    func changePlayerVolume(to val: Double) {
+        player?.volume = Float(val)
+    }
+
+    func mute(to val: Bool) {
+        player?.isMuted = val
     }
 }
